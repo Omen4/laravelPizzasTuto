@@ -21,13 +21,19 @@ Route::get('/pizzas', function () {
 //    return view('pizzas');  //returning a view
 //    return "pizzas!";  //returning a string
 //    return ['name' => 'veg pizzas', 'base'=> 'classic']; //return an array (transformed into json through laravel)
-    $pizza = [
-        'type' => 'hawaiian',
-        'base' => 'garlic',
-        'price' => 10
+    // $pizza = [
+    //     'type' => 'hawaiian',
+    //     'base' => 'garlic',
+    //     'price' => 10
+    // ];
+
+    $pizzas = [
+        ['type' => 'hawaiian', 'base' => 'cheesy crust'],
+        ['type' => 'volcano', 'base' => 'garlic crust'],
+        ['type' => 'veg supreme', 'base' => 'thin & crispy']
     ];
 
     //get data from db
-    return view('pizzas', $pizza);  //returning a view with passed datas view('nameOfView', ['key' => ])
+    return view('pizzas', ['pizzas' => $pizzas]);  //returning a view with passed datas view('nameOfView', ['key' => ])
 });
 

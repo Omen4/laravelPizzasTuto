@@ -23,35 +23,22 @@
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+                <div>
+                    Pizza List
+                </div>
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
+                    @foreach($pizzas as $pizza)
+                    <space>
                     <div>
-                        Pizza List
-                    </div>
-                    <div>
-                        <p>{{ $type }} - {{ $base }} - {{ $price }}</p>
-
-                        @for($i = 0; $i < 5; $i++)
-                        <p>the value of i is {{ $i }} </p>
-                        @endfor
-
-                        <!-- @if($price > 15)
-                            <p> this pizza is expensive </p>
-                        @elseif($price < 5)
-                            <p> this pizza is cheap </p>
-                        @else
-                            <p> this pizza is normally priced </p>
+                        {{ $loop -> index }} {{ $pizza['type'] }} - {{ $pizza['base'] }}
+                        @if($loop -> first)
+                            <span> - first in the loop </span>
                         @endif
-
-                        @unless($base == 'cheesy crust')
-                            <p> you don't have a cheesy crust</p>
-                        @endunless -->
-
-                        <!-- if needed to output some legacy php -->
-                        <!-- @php
-                            $name = 'shaun';
-                            echo($name);
-                        @endphp -->
+                        @if($loop -> last)
+                            <span> - last in the loop </span>
+                        @endif
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
